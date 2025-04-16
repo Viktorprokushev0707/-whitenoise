@@ -27,10 +27,15 @@ function openTab(tabId) {
         document.body.style.backgroundColor = '#f4f4f4';
     }
 }
-
-// Функция обработки нажатия на кнопку белого шума
+// Функция обработки нажатия на кнопку белого шума// Функция обработки нажатия на кнопку белого шума
 function handleNoiseButtonClick(event) {
-    const button = event.target;
+    // Находим ближайший родительский элемент с классом '.noise-button'
+    // Это сработает, даже если клик был по img внутри кнопки
+    const button = event.target.closest('.noise-button');
+
+    // Если клик был не по кнопке или ее содержимому, выходим
+    if (!button) return;
+
     const audioSrc = button.dataset.audio;
 
     // Если нажата та же кнопка, которая сейчас играет - останавливаем
@@ -39,7 +44,7 @@ function handleNoiseButtonClick(event) {
         button.classList.remove('playing');
         currentAudio = null;
     } else {
-        // Останавливаем предыдущий звук, если он был
+        // Останавливаем предыдущий звук и убираем стиль с предыдущей кнопки
         if (currentAudio) {
             currentAudio.classList.remove('playing');
         }
@@ -48,10 +53,9 @@ function handleNoiseButtonClick(event) {
         audioPlayer.src = audioSrc;
         audioPlayer.play().catch(error => {
             console.error("Ошибка воспроизведения:", error);
-            // Можно добавить уведомление для пользователя
-            telegram.showAlert("Не удалось воспроизвести аудио. Попробуйте еще раз.");
-        });
-        button.classList.add('playing');
+            // Показываем сообщение об ошибке пользователю через Telegram API
+            telegram.showAlert("Не удалось воспроизвести аудио. Убедитесь, что файлы добавлены и попробуйте еще раз.");
+        });        // Добавляем стиль к текущей кнопке и запоминаем ее        button.classList.add('playing');
         currentAudio = button;
     }
 }
