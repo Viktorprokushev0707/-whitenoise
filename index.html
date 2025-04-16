@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Белый шум для сна</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div class="tabs">
+        <button class="tab-button active" onclick="openTab('white-noise')">Белый шум</button>
+        <button class="tab-button" onclick="openTab('knowledge-base')">База знаний</button>
+    </div>
+
+    <div id="white-noise" class="tab-content active">
+        <div class="noise-buttons">
+            <button class="noise-button" data-audio="audio/1.mp3"></button>
+            <button class="noise-button" data-audio="audio/2.mp3"></button>
+            <button class="noise-button" data-audio="audio/3.mp3"></button>
+        </div>
+    </div>
+
+    <div id="knowledge-base" class="tab-content">
+        <h2>Сколько должен спать младенец? (по данным ВОЗ)</h2>
+        <p>0–3 месяца: 14–17 часов в сутки</p>
+        <p>4–11 месяцев: 12–15 часов в сутки</p>
+        <p>1–2 года: 11–14 часов в сутки</p>
+        <p>Эти значения включают как ночной сон, так и дневные сны.</p>
+    </div>
+
+    <audio id="audio-player" loop></audio>
+
+    <script src="script.js"></script>
+</body>
+</html>

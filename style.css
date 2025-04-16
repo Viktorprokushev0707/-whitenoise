@@ -1,0 +1,86 @@
+body {
+    font-family: sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4; /* Светлый фон по умолчанию */
+    color: #333;
+}
+
+.tabs {
+    display: flex;
+    background-color: #eee;
+}
+
+.tab-button {
+    flex: 1;
+    padding: 15px;
+    border: none;
+    background-color: #eee;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s;
+}
+
+.tab-button.active {
+    background-color: #ddd;
+    font-weight: bold;
+}
+
+.tab-content {
+    display: none;
+    padding: 20px;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+/* Стили для вкладки "Белый шум" */
+#white-noise {
+    background-color: #222; /* Темный фон */
+    color: #fff;
+}
+
+.noise-buttons {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px; /* Расстояние между кнопками */
+    margin-top: 30px;
+}
+
+.noise-button {
+    width: 80px;
+    height: 80px;
+    border: 2px solid #555;
+    background-color: #444;
+    border-radius: 50%; /* Круглые кнопки */
+    cursor: pointer;
+    transition: background-color 0.3s, border-color 0.3s;
+}
+
+.noise-button:hover {
+    background-color: #555;
+    border-color: #777;
+}
+
+.noise-button.playing {
+    background-color: #6a6;
+    border-color: #8c8;
+}
+
+/* Стили для вкладки "База знаний" */
+#knowledge-base h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+#knowledge-base p {
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+/* Скрытие стандартного плеера */
+audio {
+    display: none;
+}
