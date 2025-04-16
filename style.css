@@ -52,21 +52,29 @@ body {
 .noise-button {
     width: 80px;
     height: 80px;
-    border: 2px solid #555;
-    background-color: #444;
-    border-radius: 50%; /* Круглые кнопки */
+    border: none; /* Убираем рамку */
+    background-color: transparent; /* Убираем фон */
+    border-radius: 50%;
     cursor: pointer;
-    transition: background-color 0.3s, border-color 0.3s;
+    padding: 0; /* Убираем внутренние отступы */
+    overflow: hidden; /* Скрываем части изображения, выходящие за круг */
+    transition: transform 0.2s; /* Плавное увеличение при наведении/нажатии */
+}
+
+.noise-button img {
+    display: block; /* Убираем лишние отступы под изображением */
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Масштабируем изображение, чтобы оно заполнило кнопку */
 }
 
 .noise-button:hover {
-    background-color: #555;
-    border-color: #777;
+    transform: scale(1.05); /* Немного увеличиваем при наведении */
 }
 
 .noise-button.playing {
-    background-color: #6a6;
-    border-color: #8c8;
+    /* Можно добавить эффект для играющей кнопки, например, тень или рамку */
+    box-shadow: 0 0 15px rgba(100, 255, 100, 0.7);
 }
 
 /* Стили для вкладки "База знаний" */
